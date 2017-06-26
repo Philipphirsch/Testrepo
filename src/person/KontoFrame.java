@@ -62,6 +62,7 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 		    double guthaben = meinKonto.getGuthaben(); 
 		  //  String gutString = geldFormat.format(guthaben); 
 		   // guthabenAnzeige.setText(gutString); 
+		    //test
 		  } 
 		  public void windowClosing (WindowEvent e) { 
 		    this.setVisible(false); 
