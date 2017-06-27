@@ -1,51 +1,46 @@
 package person;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.text.*;
-
-
 
 public class Personendatenbank {
-	private String Vorname;
-	private String Zuname;
-	private int Geburtsjahr;
+	private String vorname;
+	private String zuname;
+	private int geburtsjahr;
 	
-	public void setVorname (String NewVorname){
-		Vorname = NewVorname;
+	public void setVorname (String newVorname){
+		vorname = newVorname;
 	}
-	public void setZuname (String NewZuname){
-		Zuname = NewZuname;
+	public void setZuname (String newZuname){
+		zuname = newZuname;
 	}
-	public void setGeburtsjahr (int NewGeburtsjahr){
-		Geburtsjahr = NewGeburtsjahr;
+	public void setGeburtsjahr (int newGeburtsjahr){
+		geburtsjahr = newGeburtsjahr;
 	}
 	
 	public String getVorname(){
-		return Vorname;
+		return vorname;
 	}
 	public String getZuname(){
-		return Zuname;
+		return zuname;
 	}
 	public int getGeburtsjahr(){
-		return Geburtsjahr;
+		return geburtsjahr;
 	}
 	
 
 public class Student extends Personendatenbank {
-	private String Uni;
-	public void setUni (String NewUni){
-		Uni = NewUni;
+	private String uni;
+	public void setUni (String newUni){
+		uni = newUni;
 	}
 	public String getUni(){
-		return Uni;
+		return uni;
 	}
 }
 
 
 public class Konto extends Personendatenbank{
 	private double guthaben;
-	private Konto meinKonto=null;
+	private Konto meinKonto;
 	public void setGuthaben (double newGuthaben){
 		guthaben = newGuthaben;
 	}
@@ -56,7 +51,7 @@ public class Konto extends Personendatenbank{
 	
 	public void einzahlen (double betrag){
 		if (betrag >= 0){
-			guthaben = guthaben+betrag;
+			guthaben = guthaben + betrag;
 		}
 		else{
 			System.out.println("Betrag zu gering");
@@ -65,7 +60,7 @@ public class Konto extends Personendatenbank{
 	
 	public void abheben (double betrag){
 		if (betrag >= 0){
-			guthaben = guthaben-betrag;
+			guthaben = guthaben - betrag;
 		}
 		else{
 			System.out.println("Betrag zu gering");
@@ -86,7 +81,7 @@ public class Konto extends Personendatenbank{
 	{
 		String s;
 		Personendatenbank.getVorname();
-		s = Student.Vorname + " " + Personendatenbank.Zuname + " " + Personendatenbank.Geburtsjahr + " " + Student.Uni;
+		s = Student.vorname + " " + Personendatenbank.zuname + " " + Personendatenbank.geburtsjahr + " " + Student.uni;
 		return s;		
 	}
 	
@@ -94,7 +89,7 @@ public class Konto extends Personendatenbank{
 	{
 		String s;
 		String Guthaben = String.valueOf(Konto.guthaben);
-		s = Student.Vorname + " " + Personendatenbank.Zuname + " " + Personendatenbank.Geburtsjahr + " " + Konto.guthaben;
+		s = Student.vorname + " " + Personendatenbank.zuname + " " + Personendatenbank.geburtsjahr + " " + Konto.guthaben;
 		return s;		
 	}*/
 
