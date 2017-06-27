@@ -1,10 +1,10 @@
-package person;
+package entities;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-import person.Personendatenbank.Konto;
+import entities.Person.Konto;
 
 
 public class KontoFrame extends Frame implements ActionListener, WindowListener{
@@ -28,7 +28,7 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 	}
 	
 	  public void init() { 
-		    Person inhaber = meinKonto.getZuname(); 
+		    Person inhaber = meinKonto.getBesitzer();
 		    String inhString = inhaber.toString(); 
 		    inhaberAnzeige.setText(inhString); 
 		    double guthaben = meinKonto.getGuthaben(); 
