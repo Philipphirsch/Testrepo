@@ -15,9 +15,12 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 	private Label guthabenAnzeige = new Label();
 	private Button einzahlenButton = new Button("einzahlen");
 	private Button abhebenButton = new Button("einzahlen");
-	
 	private GridLayout fensterLayout = new GridLayout (3,2);
 	private DecimalFormat geldFormat = new DecimalFormat("#,##0.00");
+	private TextField tf;
+	double betrag;	
+    String stringBetrag;
+
 	
 	public void setKonto (Konto k){
 		this.meinKonto = k;
@@ -34,7 +37,7 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 		    double guthaben = meinKonto.getGuthaben(); 
 		    String gutString = geldFormat.format(guthaben); 
 		    guthabenAnzeige.setText(gutString); 
-		    this.setSize(300,150); 
+		    this.setSize(600,400); 
 		    this.setTitle("Konto-Fenster"); 
 		    this.setLayout(fensterLayout); 
 		    this.add(inhaberText); 
@@ -42,7 +45,12 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 		    this.add(guthabenText); 
 		    this.add(guthabenAnzeige); 
 		    this.add(einzahlenButton); 
-		    this.add(abhebenButton); 
+		    this.add(abhebenButton);
+		    tf = new TextField(0);
+		    this.add(tf);
+
+		    
+		    
 		    einzahlenButton.addActionListener(this); 
 		    abhebenButton.addActionListener(this); 
 		    this.addWindowListener(this); 
@@ -52,16 +60,23 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 		    Object angeklickt = e.getSource(); 
 		    
 		    if (angeklickt == einzahlenButton ) { 
-		      meinKonto.einzahlen(betrag); 
+              stringBetrag = tf.getText();
+              betrag = Double.parseDouble(stringBetrag);
+              meinKonto.einzahlen(betrag); 
+              System.out.println(betrag);
+
 		    } 
 		    
 		    if (angeklickt == abhebenButton ) { 
-		      meinKonto.abheben(betrag); 
+		      stringBetrag = tf.getText();
+		      betrag = Double.parseDouble(stringBetrag);
+		      meinKonto.abheben(betrag);
+              System.out.println(betrag);
 		    } 
 		    
 		    double guthaben = meinKonto.getGuthaben(); 
-		  //  String gutString = geldFormat.format(guthaben); 
-		   // guthabenAnzeige.setText(gutString); 
+		    String gutString = geldFormat.format(guthaben); 
+		    guthabenAnzeige.setText(gutString); 
 		    //test
 		  } 
 		  public void windowClosing (WindowEvent e) { 
