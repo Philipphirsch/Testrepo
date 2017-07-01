@@ -7,11 +7,13 @@ public class App {
 		ich.setZuname("Hirsch");
 		ich.setGeburtsjahr(1983);
 		ich.setUni("Wien");
-		
+		System.out.println(ich.getVorname());
 		
 		Konto ichRaika = new Konto();
 		ichRaika.setBesitzer(ich);
+		System.out.println("ichRaika Vorname " + ichRaika.getBesitzer().getVorname());
 		ichRaika.setGuthaben(123.45);
+
 		
 		ichRaika.abheben(10);
 		ichRaika.einzahlen(23);

@@ -14,7 +14,7 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 	private Label guthabenText = new Label("Kontostand");
 	private Label guthabenAnzeige = new Label();
 	private Button einzahlenButton = new Button("einzahlen");
-	private Button abhebenButton = new Button("einzahlen");
+	private Button abhebenButton = new Button("abheben");
 	private GridLayout fensterLayout = new GridLayout (3,2);
 	private DecimalFormat geldFormat = new DecimalFormat("#,##0.00");
 	private TextField tf;
@@ -33,7 +33,7 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 	  public void init() { 
 		    Person inhaber = meinKonto.getBesitzer();
 		    String inhString = inhaber.toString(); 
-		    inhaberAnzeige.setText(inhString); 
+		    inhaberAnzeige.setText(meinKonto.getBesitzer().getVorname() + " " + meinKonto.getBesitzer().getZuname()); 
 		    double guthaben = meinKonto.getGuthaben(); 
 		    String gutString = geldFormat.format(guthaben); 
 		    guthabenAnzeige.setText(gutString); 
@@ -48,9 +48,6 @@ public class KontoFrame extends Frame implements ActionListener, WindowListener{
 		    this.add(abhebenButton);
 		    tf = new TextField(0);
 		    this.add(tf);
-
-		    
-		    
 		    einzahlenButton.addActionListener(this); 
 		    abhebenButton.addActionListener(this); 
 		    this.addWindowListener(this); 

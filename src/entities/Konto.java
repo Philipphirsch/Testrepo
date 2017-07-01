@@ -12,14 +12,15 @@ public class Konto {
 			return guthaben;
 		}
 		
+		public void setBesitzer(Person besitzer) {
+			this.besitzer = besitzer;
+			System.out.println("Kontobesitzer " + besitzer);
+		}
+		
 		public Person getBesitzer() {
 			return besitzer;
 		}
-		
-		public void setBesitzer(Person besitzer) {
-			this.besitzer = besitzer;
-		}
-		
+				
 		public void einzahlen (double betrag){
 			if (betrag >= 0){
 				guthaben = guthaben + betrag;
